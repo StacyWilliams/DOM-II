@@ -58,8 +58,8 @@ let heightOutput = document.querySelector('');
 let widthOutput = document.querySelector('');
 
 function reportWindowSize() {
-  heightOutput.textContent = window.innerHeight;
-  widthOutput.textContent = window.innerWidth;
+  heightOutput.textContent = document.innerHeight;
+  widthOutput.textContent = document.innerWidth;
 }
 
 
@@ -77,7 +77,7 @@ window.onresize = reportWindowSize;
       if (event.key === 'ArrowRight'){
       alert('Right')
       }
-      else if ('ArrowLeft'){
+      else if ('ArrowLeft event'){
           alert('Left')
       }
       console.log(event);
@@ -89,6 +89,7 @@ window.onresize = reportWindowSize;
   // drag and drop
 
 let dragged;
+let dropzone;
 
 /* events fired on the draggable target */
 document.addEventListener("drag", function(event) {
@@ -150,7 +151,7 @@ document.addEventListener("drop", function(event) {
                        
   // dblclick                    
    let clicker = document.querySelector(".img/fun.jpg"); 
-                        clicker.addEventListener('select', function(event) {
+                        clicker.addEventListener('dblclick', function(event) {
                                 counter++;
                                 clicker.onclick = prompt('This was prompted from a double-click');
                                 });
