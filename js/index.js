@@ -41,7 +41,7 @@ body.addEventListener('wheel', function zoom(el) {
   
     // Apply scale transform
     el.style.transform = `scale(${scale})`;
-  }
+  });
  
 //   focus
 let bus = document.querySelector(".logo-heading");
@@ -52,7 +52,8 @@ bus.addEventListener('focus', function(event) {
         });
  
 
-resize
+// resize
+
 let heightOutput = document.querySelector('');
 let widthOutput = document.querySelector('');
 
@@ -66,16 +67,91 @@ function reportWindowSize() {
 window.onresize = reportWindowSize;
 
  btn.addEventListener('scroll', function(event) {
-    counter++;
-    event.target.style.color= 'green';
+     event.target.style.color= 'green';
         });
 
- btn.addEventListener('select', function(event) {
-            counter++;
-            event.target.style.color= 'green';
-            });
+  // keydown
 
- btn.addEventListener('dbclick', function(event) {
-                counter++;
-                event.target.style.color= 'green';
-                });
+  const keyDown = document.querySelector('body');
+  keyDown.addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight'){
+      alert('Right')
+      }
+      else if ('ArrowLeft'){
+          alert('Left')
+      }
+      console.log(event);
+  });
+
+
+
+
+  // drag and drop
+
+let dragged;
+
+/* events fired on the draggable target */
+document.addEventListener("drag", function(event) {
+
+}, false);
+
+document.addEventListener("dragstart", function(event) {
+  // store a ref. on the dragged elem
+  dragged = event.target;
+  // make it half transparent
+  event.target.style.opacity = .5;
+}, false);
+
+document.addEventListener("dragend", function(event) {
+  // reset the transparency
+  event.target.style.opacity = "";
+}, false);
+
+/* events fired on the drop targets */
+document.addEventListener("dragover", function(event) {
+  // prevent default to allow drop
+  event.preventDefault();
+}, false);
+
+document.addEventListener("dragenter", function(event) {
+  // highlight potential drop target when the draggable element enters it
+  if (event.target.className == "dropzone") {
+    event.target.style.background = "purple";
+  }
+
+}, false);
+
+document.addEventListener("dragleave", function(event) {
+  // reset background of potential drop target when the draggable element leaves it
+  if (event.target.className == "dropzone") {
+    event.target.style.background = "";
+  }
+
+}, false);
+
+document.addEventListener("drop", function(event) {
+  // prevent default action (open as link for some elements)
+  event.preventDefault();
+  // move dragged elem to the selected drop target
+  if (event.target.className == "dropzone") {
+    event.target.style.background = "";
+    dragged.parentNode.removeChild( dragged );
+    event.target.appendChild( dragged );
+  }
+}, false)
+
+  // load              
+
+ let start = document.querySelector("body"); 
+ start.addEventListener('load', function(event) {
+                        start.load;
+                        });
+                       
+                       
+  // dblclick                    
+   let clicker = document.querySelector(".img/fun.jpg"); 
+                        clicker.addEventListener('select', function(event) {
+                                counter++;
+                                clicker.onclick = prompt('This was prompted from a double-click');
+                                });
+                                
